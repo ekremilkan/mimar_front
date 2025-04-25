@@ -1,0 +1,210 @@
+import { useState, useEffect, useRef } from "react";
+import product from "../assets/img/product.jpg";
+const Products = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const swiperRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById("project-gallery");
+      if (section) {
+        const sectionPosition = section.getBoundingClientRect();
+        if (sectionPosition.top < window.innerHeight * 0.75) {
+          setIsVisible(true);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    // Trigger once on load
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Project data
+  const projects = [
+    {
+      id: 1,
+      name: "Endüstriyel Tesis Modeli",
+      image: product,
+      category: "Endüstriyel",
+    },
+    {
+      id: 2,
+      name: "Konut Projesi",
+      image: product,
+      category: "Konut",
+    },
+    {
+      id: 3,
+      name: "Karma Kullanım Kompleksi",
+      image: product,
+      category: "Karma Kullanım",
+    },
+    {
+      id: 4,
+      name: "Şehir Planlama Projesi",
+      image: product,
+      category: "Şehir Planlama",
+    },
+    {
+      id: 5,
+      name: "Ticari Merkez",
+      image: product,
+      category: "Ticari",
+    },
+    {
+      id: 6,
+      name: "Kültür Merkezi",
+      image: product,
+      category: "Kültürel",
+    },
+    {
+      id: 7,
+      name: "Eğitim Kampüsü",
+      image: product,
+      category: "Eğitim",
+    },
+    {
+      id: 8,
+      name: "Spor Kompleksi",
+      image: product,
+      category: "Spor",
+    },
+  ];
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 75) {
+      // Swipe left
+      handleNext();
+    } else if (touchEndX.current - touchStartX.current > 75) {
+      // Swipe right
+      handlePrev();
+    }
+  };
+
+  const handleNext = () => {
+    const maxIndex = Math.max(0, projects.length - 4);
+    setCurrentIndex((prevIndex) => (prevIndex >= maxIndex ? 0 : prevIndex + 1));
+  };
+
+  const handlePrev = () => {
+    const maxIndex = Math.max(0, projects.length - 4);
+    setCurrentIndex((prevIndex) => (prevIndex <= 0 ? maxIndex : prevIndex - 1));
+  };
+
+  return (
+    <section id="project-gallery" className="py-16 md:py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto">
+        <div
+          className={`text-center mb-12 px-4 transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+            Projelerimiz
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Toprak Mimarlık olarak tamamladığımız projelerden bazı örnekler. Her
+            bir proje, müşterilerimizin vizyonunu gerçeğe dönüştürmek için
+            titizlikle hazırlanmıştır.
+          </p>
+        </div>
+
+        <div className="relative overflow-hidden">
+          <div className="absolute top-1/2 left-4 z-10 transform -translate-y-1/2">
+            <button
+              onClick={handlePrev}
+              className="bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-md transition-all"
+              aria-label="Previous projects"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-chevron-left"
+              >
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="absolute top-1/2 right-4 z-10 transform -translate-y-1/2">
+            <button
+              onClick={handleNext}
+              className="bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-md transition-all"
+              aria-label="Next projects"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-chevron-right"
+              >
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </button>
+          </div>
+
+          <div
+            ref={swiperRef}
+            className="flex transition-transform duration-300 ease-out"
+            style={{ transform: `translateX(-${currentIndex * 25}%)` }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 group relative overflow-hidden"
+              >
+                <div className="aspect-[2/3] relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-75"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                    <div className="text-white text-center opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 p-4">
+                      <h3 className="text-xl font-bold">{project.name}</h3>
+                      <p className="text-sm mt-2">{project.category}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Products;
