@@ -27,54 +27,56 @@ const Products = () => {
     };
   }, []);
 
+  const placehold = "https://placehold.co/600x400";
+
   // Project data
   const projects = [
     {
       id: 1,
       name: "Endüstriyel Tesis Modeli",
-      image: product,
+      image: placehold,
       category: "Endüstriyel",
     },
     {
       id: 2,
       name: "Konut Projesi",
-      image: product,
+      image: placehold,
       category: "Konut",
     },
     {
       id: 3,
       name: "Karma Kullanım Kompleksi",
-      image: product,
+      image: placehold,
       category: "Karma Kullanım",
     },
     {
       id: 4,
       name: "Şehir Planlama Projesi",
-      image: product,
+      image: placehold,
       category: "Şehir Planlama",
     },
     {
       id: 5,
       name: "Ticari Merkez",
-      image: product,
+      image: placehold,
       category: "Ticari",
     },
     {
       id: 6,
       name: "Kültür Merkezi",
-      image: product,
+      image: placehold,
       category: "Kültürel",
     },
     {
       id: 7,
       name: "Eğitim Kampüsü",
-      image: product,
+      image: placehold,
       category: "Eğitim",
     },
     {
       id: 8,
       name: "Spor Kompleksi",
-      image: product,
+      image: placehold,
       category: "Spor",
     },
   ];

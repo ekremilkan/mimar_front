@@ -56,21 +56,22 @@ const AboutUs = () => {
 
             <p className="text-gray-700 leading-relaxed">
               20 yıllık tecrübe, sayısız proje ve istisnasız memnun müşteri
-              portföyümüzü yeni bir yapılanmayla MaketChi'de bir araya getirdik.
+              portföyümüzü yeni bir yapılanmayla Toprak Mimarlık'de bir araya
+              getirdik.
             </p>
 
             <p className="text-gray-700 leading-relaxed">
               Her bir projede, özenle seçilmiş malzemelerle özgün ve kaliteli
               maketler üretiyoruz. Maket yapım sürecimizde, en son teknolojik
               imkanları kullanarak tasarımlarınızı hayata geçirirken kaliteyi ön
-              planda tutuyoruz. Hedefimiz, MaketChi'yi maket sanatının zarafet
-              ve özgünlükle buluştuğu bir hizmet noktasına dönüştürmek.
+              planda tutuyoruz. Hedefimiz, Toprak Mimarlık'ı maket sanatının
+              zarafet ve özgünlükle buluştuğu bir hizmet noktasına dönüştürmek.
             </p>
 
             <p className="text-gray-700 leading-relaxed">
               Projelerimizde estetik detaylara verdiğimiz önemle,
               müşterilerimize benzersiz ve etkileyici mimari maketler sunuyoruz.
-              MaketChi'nin ana prensibi, her bir maketin özel bir hikaye
+              Toprak Mimarlık'ın ana prensibi, her bir maketin özel bir hikaye
               taşıması ve müşterilerimizin hayallerini gerçeğe dönüştürmek için
               sanatsal bir dokunuş sunmaktır.
             </p>

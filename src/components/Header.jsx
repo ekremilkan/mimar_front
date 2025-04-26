@@ -19,7 +19,7 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center">
           <img
-            src={logo}
+            src="https://placehold.co/60x40"
             alt="Logo"
             className="h-14 cursor-pointer"
             onClick={() => handleNavigation("/")}
