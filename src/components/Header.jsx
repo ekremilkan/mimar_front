@@ -99,7 +99,7 @@ const Header = () => {
           <div className="hidden lg:block h-5 w-px bg-white/30 mx-2"></div>
 
           <button
-            onClick={() => handleNavigation("/contact")}
+            onClick={() => handleNavigation("/iletisim")}
             className="block text-white py-2 px-4 hover:text-yellow-300 font-light"
           >
             İletişim
