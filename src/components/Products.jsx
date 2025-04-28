@@ -1,8 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import product from "../assets/img/product.jpg";
+import { IoMdClose } from "react-icons/io";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
 const Products = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
   const swiperRef = useRef(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
@@ -26,6 +30,29 @@ const Products = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // Add event listener for ESC key to close modal
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && showModal) {
+        setShowModal(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Lock body scroll when modal is open
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "auto";
+    };
+  }, [showModal]);
 
   const placehold = "https://placehold.co/600x400";
 
@@ -109,6 +136,16 @@ const Products = () => {
     setCurrentIndex((prevIndex) => (prevIndex <= 0 ? maxIndex : prevIndex - 1));
   };
 
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedProject(null);
+  };
+
   return (
     <section id="project-gallery" className="py-16 md:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto">
@@ -134,20 +171,7 @@ const Products = () => {
               className="bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-md transition-all"
               aria-label="Previous projects"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-chevron-left"
-              >
-                <path d="m15 18-6-6 6-6" />
-              </svg>
+              <FaChevronLeft size={24} />
             </button>
           </div>
 
@@ -157,20 +181,7 @@ const Products = () => {
               className="bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-md transition-all"
               aria-label="Next projects"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-chevron-right"
-              >
-                <path d="m9 18 6-6-6-6" />
-              </svg>
+              <FaChevronRight size={24} />
             </button>
           </div>
 
@@ -185,7 +196,8 @@ const Products = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 group relative overflow-hidden"
+                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 group relative overflow-hidden cursor-pointer"
+                onClick={() => handleProjectClick(project)}
               >
                 <div className="aspect-[2/3] relative overflow-hidden">
                   <img
@@ -205,6 +217,39 @@ const Products = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {showModal && selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4">
+          <div className="relative max-w-4xl w-full max-h-[90vh] flex flex-col bg-white rounded-lg overflow-hidden">
+            {/* Close button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 z-10 bg-black bg-opacity-50 hover:bg-opacity-70 text-white rounded-full p-2 transition-all"
+              aria-label="Close modal"
+            >
+              <IoMdClose size={24} />
+            </button>
+
+            {/* Image container */}
+            <div className="flex-grow overflow-hidden">
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.name}
+                className="w-full h-full object-contain"
+              />
+            </div>
+
+            {/* Project info */}
+            <div className="p-4 bg-white">
+              <h3 className="text-xl font-bold text-black">
+                {selectedProject.name}
+              </h3>
+              <p className="text-gray-600">{selectedProject.category}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
