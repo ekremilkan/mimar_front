@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/img/logo.jpeg";
+import logo from "../assets/img/logo.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Header = () => {
         {/* Logo */}
         <div className="flex items-center">
           <img
-            src="https://placehold.co/60x40"
+            src={logo}
             alt="Logo"
             className="h-14 cursor-pointer"
             onClick={() => handleNavigation("/")}
