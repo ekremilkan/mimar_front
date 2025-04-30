@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import bossImage from "../../assets/img/boss.jpeg";
 
 const About = () => {
-  // State variables for entire page
   const [isExperienceVisible, setIsExperienceVisible] = useState(false);
   const [isCounterVisible, setIsCounterVisible] = useState(false);
   const [isHakkimizdaVisible, setIsHakkimizdaVisible] = useState(false);
+  const [isMissionVisionVisible, setIsMissionVisionVisible] = useState(false);
   const [counters, setCounters] = useState({
     years: 0,
     projects: 0,
@@ -19,6 +20,7 @@ const About = () => {
   const experienceSectionRef = useRef(null);
   const counterSectionRef = useRef(null);
   const hakkimizdaSectionRef = useRef(null);
+  const missionVisionSectionRef = useRef(null);
 
   // Target values for counters
   const targetValues = {
@@ -102,6 +104,29 @@ const About = () => {
     return () => {
       if (hakkimizdaSectionRef.current) {
         observer.unobserve(hakkimizdaSectionRef.current);
+      }
+    };
+  }, []);
+
+  // Effects for Intersection Observer for Mission Vision Section
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsMissionVisionVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (missionVisionSectionRef.current) {
+      observer.observe(missionVisionSectionRef.current);
+    }
+
+    return () => {
+      if (missionVisionSectionRef.current) {
+        observer.unobserve(missionVisionSectionRef.current);
       }
     };
   }, []);
@@ -212,7 +237,7 @@ const About = () => {
       {/* Experience Section (now directly in AboutPage) */}
       <section
         ref={experienceSectionRef}
-        className="py-16 md:py-24 bg-black text-white"
+        className="py-16 md:py-24 bg-black text-white border-t border-gray-800"
       >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -262,6 +287,78 @@ const About = () => {
                 tutku ve ustalıklarını her bir projeye yansıtarak, kaliteli ve
                 özgün hizmet sunmak için buradalar.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Misyonumuz ve Vizyonumuz Section */}
+      <section
+        ref={missionVisionSectionRef}
+        className="py-16 md:py-24 bg-black text-white"
+      >
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Kurucu Fotoğrafı */}
+            <div
+              className={`transition-all duration-1000 ${
+                isMissionVisionVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              <div className="relative overflow-hidden rounded-lg shadow-xl">
+                <img src={bossImage} alt="Kurucu" className="w-full h-auto" />
+                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 p-4">
+                  <h3 className="text-xl font-bold">Adnan Toprak</h3>
+                  <p className="text-gray-300">Kurucu & Baş Mimar</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Misyon & Vizyon Metinleri */}
+            <div
+              className={`space-y-8 transition-all duration-1000 delay-300 ${
+                isMissionVisionVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              {/* Misyonumuz */}
+              <div>
+                <div className="h-1 w-12 bg-white mb-6"></div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  Misyonumuz
+                </h2>
+                <p className="text-gray-300">
+                  Toprak Mimarlık olarak misyonumuz, mimari projelerinizi en
+                  yüksek hassasiyet ve kaliteyle hayata geçirmektir. Her bir
+                  detayın özenle işlendiği, müşteri taleplerine tam olarak cevap
+                  veren, estetik ve fonksiyonel tasarımlar sunarak mimari
+                  vizyonunuzu somutlaştırıyoruz. Sektördeki 20 yıllık
+                  deneyimimizle, sürdürülebilir, yenilikçi ve çevreye duyarlı
+                  mimari çözümler sunarak toplumsal yaşam kalitesini artırmayı
+                  hedefliyoruz.
+                </p>
+              </div>
+
+              {/* Vizyonumuz */}
+              <div>
+                <div className="h-1 w-12 bg-white mb-6"></div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  Vizyonumuz
+                </h2>
+                <p className="text-gray-300">
+                  Vizyonumuz, mimarlık ve tasarım alanında ulusal ve
+                  uluslararası ölçekte tanınan, yenilikçi yaklaşımları ve özgün
+                  projeleriyle sektöre yön veren bir marka olmaktır. Teknolojik
+                  gelişmeleri yakından takip ederek, geleneksel değerlerle
+                  modern tasarım anlayışını harmanlayarak, her projede fark
+                  yaratan çözümler sunmak ve mimari mükemmelliğin simgesi haline
+                  gelmek için çalışıyoruz. İnsana ve çevreye saygılı,
+                  sürdürülebilir ve kalıcı eserler bırakmayı amaçlıyoruz.
+                </p>
+              </div>
             </div>
           </div>
         </div>
