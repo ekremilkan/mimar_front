@@ -196,7 +196,7 @@ const Products = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 group relative overflow-hidden cursor-pointer"
+                className="w-full md:w-1/3 lg:w-1/4 flex-shrink-0 group relative overflow-hidden cursor-pointer"
                 onClick={() => handleProjectClick(project)}
               >
                 <div className="aspect-[2/3] relative overflow-hidden">
