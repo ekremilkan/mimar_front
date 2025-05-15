@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import product4 from "../assets/img/product4.webp";
 
 const AboutUs = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -35,7 +36,7 @@ const AboutUs = () => {
           <div className="relative">
             <div className="aspect-square md:aspect-auto md:h-[500px] bg-gray-100 rounded-lg overflow-hidden">
               <img
-                src="https://placehold.co/600x400"
+                src={product4}
                 alt="Modern architectural building sketch"
                 className="w-full h-full object-cover"
               />

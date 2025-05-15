@@ -1,17 +1,13 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import product2 from "../../assets/img/product2.webp";
+import product3 from "../../assets/img/product3.webp";
+import product4 from "../../assets/img/product4.webp";
 
 const ProjectsPage = () => {
   const [activeCategory, setActiveCategory] = useState("TÜMÜ");
   const [filteredProjects, setFilteredProjects] = useState([]);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
-  const [isCategoriesVisible, setIsCategoriesVisible] = useState(false);
-  const [visibleProjects, setVisibleProjects] = useState([]);
-
-  const headerRef = useRef(null);
-  const categoriesRef = useRef(null);
-  const projectsRef = useRef(null);
 
   // Project data
   const projects = [
@@ -19,55 +15,55 @@ const ProjectsPage = () => {
       id: "sarimert-residence",
       title: "Sarımert Residence",
       category: "MİMARİ MAKETLER",
-      image: "/images/projects/sarimert-residence.jpg",
+      image: product2,
     },
     {
       id: "sirius-hotel",
       title: "Sirius Hotel",
       category: "MİMARİ MAKETLER",
-      image: "/images/projects/sirius-hotel.jpg",
+      image: product4,
     },
     {
       id: "israkoy-village",
       title: "İsraköy Yaşam Alanı",
       category: "MİNYATÜR PARK MAKETLERİ",
-      image: "/images/projects/israkoy-village.jpg",
+      image: product3,
     },
     {
       id: "modern-villa",
       title: "Modern Villa",
       category: "MİMARİ MAKETLER",
-      image: "/images/projects/modern-villa.jpg",
+      image: product2,
     },
     {
       id: "garden-house",
       title: "Bahçeli Ev",
       category: "MİMARİ MAKETLER",
-      image: "/images/projects/garden-house.jpg",
+      image: product2,
     },
     {
       id: "blue-residence",
       title: "Mavi Residence",
       category: "MİMARİ MAKETLER",
-      image: "/images/projects/blue-residence.jpg",
+      image: product4,
     },
     {
       id: "industrial-facility",
       title: "Endüstriyel Tesis",
       category: "ENDÜSTRİYEL MAKETLER",
-      image: "/images/projects/industrial-facility.jpg",
+      image: product4,
     },
     {
       id: "luxury-apartment",
       title: "Lüks Apartman",
       category: "TEFRİŞ MAKETLER",
-      image: "/images/projects/luxury-apartment.jpg",
+      image: product3,
     },
     {
       id: "theme-park",
       title: "Tema Parkı",
       category: "MİNYATÜR PARK MAKETLERİ",
-      image: "/images/projects/theme-park.jpg",
+      image: product2,
     },
   ];
 
@@ -81,61 +77,6 @@ const ProjectsPage = () => {
   ];
 
   useEffect(() => {
-    // Set up intersection observers for animations
-    const headerObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsHeaderVisible(true);
-          headerObserver.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const categoriesObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsCategoriesVisible(true);
-          categoriesObserver.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const projectsObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Stagger the appearance of projects
-          const newVisibleProjects = {};
-          filteredProjects.forEach((project, index) => {
-            setTimeout(() => {
-              setVisibleProjects((prev) => ({
-                ...prev,
-                [project.id]: true,
-              }));
-            }, 100 * index);
-          });
-
-          projectsObserver.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (headerRef.current) headerObserver.observe(headerRef.current);
-    if (categoriesRef.current)
-      categoriesObserver.observe(categoriesRef.current);
-    if (projectsRef.current) projectsObserver.observe(projectsRef.current);
-
-    return () => {
-      if (headerRef.current) headerObserver.unobserve(headerRef.current);
-      if (categoriesRef.current)
-        categoriesObserver.unobserve(categoriesRef.current);
-      if (projectsRef.current) projectsObserver.unobserve(projectsRef.current);
-    };
-  }, [filteredProjects]);
-
-  useEffect(() => {
     // Filter projects based on active category
     if (activeCategory === "TÜMÜ") {
       setFilteredProjects(projects);
@@ -144,35 +85,12 @@ const ProjectsPage = () => {
         projects.filter((project) => project.category === activeCategory)
       );
     }
-
-    // Reset visible projects when category changes
-    setVisibleProjects({});
-
-    // Re-observe projects section when category changes
-    const projectsObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Stagger the appearance of projects
-          filteredProjects.forEach((project, index) => {
-            setTimeout(() => {
-              setVisibleProjects((prev) => ({
-                ...prev,
-                [project.id]: true,
-              }));
-            }, 100 * index);
-          });
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (projectsRef.current) {
-      projectsObserver.observe(projectsRef.current);
-      return () => {
-        projectsObserver.unobserve(projectsRef.current);
-      };
-    }
   }, [activeCategory]);
+
+  // İlk yüklemede tüm projeleri göster
+  useEffect(() => {
+    setFilteredProjects(projects);
+  }, []);
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
@@ -183,10 +101,7 @@ const ProjectsPage = () => {
       <Header />
 
       {/* Hero Section */}
-      <section
-        ref={headerRef}
-        className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden"
-      >
+      <section className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-black"
           style={{
@@ -208,29 +123,17 @@ const ProjectsPage = () => {
           ></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center bg-black">
-          <h1
-            className={`text-5xl md:text-6xl font-bold text-white z-10 transition-all duration-1000 ${
-              isHeaderVisible
-                ? "opacity-100 transform translate-y-0"
-                : "opacity-0 transform translate-y-10"
-            }`}
-          >
+          <h1 className="text-5xl md:text-6xl font-bold text-white z-10">
             Projelerimiz
           </h1>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section ref={categoriesRef} className="py-8 border-b border-gray-200">
+      <section className="py-8 border-b border-gray-200">
         <div className="container mx-auto px-4">
-          <div
-            className={`flex flex-wrap justify-center gap-4 md:gap-8 transition-all duration-1000 ${
-              isCategoriesVisible
-                ? "opacity-100 transform translate-y-0"
-                : "opacity-0 transform translate-y-10"
-            }`}
-          >
-            {categories.map((category, index) => (
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+            {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => handleCategoryClick(category)}
@@ -239,13 +142,6 @@ const ProjectsPage = () => {
                     ? "text-black border-b-2 border-black"
                     : "text-gray-500 hover:text-black"
                 }`}
-                style={{
-                  transitionDelay: `${index * 100}ms`,
-                  opacity: isCategoriesVisible ? 1 : 0,
-                  transform: isCategoriesVisible
-                    ? "translateY(0)"
-                    : "translateY(20px)",
-                }}
               >
                 {category}
               </button>
@@ -255,22 +151,11 @@ const ProjectsPage = () => {
       </section>
 
       {/* Projects Grid */}
-      <section ref={projectsRef} className="py-16 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <div
-                key={project.id}
-                className="group cursor-pointer"
-                style={{
-                  transition: "all 0.6s ease",
-                  transitionDelay: `${index * 100}ms`,
-                  opacity: visibleProjects[project.id] ? 1 : 0,
-                  transform: visibleProjects[project.id]
-                    ? "translateY(0)"
-                    : "translateY(40px)",
-                }}
-              >
+            {filteredProjects.map((project) => (
+              <div key={project.id} className="group cursor-pointer">
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image || "/images/placeholder.jpg"}

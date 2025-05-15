@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { IoMdClose } from "react-icons/io";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import product5 from "../assets/img/product5.webp";
+import product6 from "../assets/img/product6.webp";
+import product4 from "../assets/img/product4.webp";
 
 const Products = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -54,56 +57,54 @@ const Products = () => {
     };
   }, [showModal]);
 
-  const placehold = "https://placehold.co/600x400";
-
   // Project data
   const projects = [
     {
       id: 1,
       name: "Endüstriyel Tesis Modeli",
-      image: placehold,
+      image: product5,
       category: "Endüstriyel",
     },
     {
       id: 2,
       name: "Konut Projesi",
-      image: placehold,
+      image: product4,
       category: "Konut",
     },
     {
       id: 3,
       name: "Karma Kullanım Kompleksi",
-      image: placehold,
+      image: product5,
       category: "Karma Kullanım",
     },
     {
       id: 4,
       name: "Şehir Planlama Projesi",
-      image: placehold,
+      image: product6,
       category: "Şehir Planlama",
     },
     {
       id: 5,
       name: "Ticari Merkez",
-      image: placehold,
+      image: product4,
       category: "Ticari",
     },
     {
       id: 6,
       name: "Kültür Merkezi",
-      image: placehold,
+      image: product5,
       category: "Kültürel",
     },
     {
       id: 7,
       name: "Eğitim Kampüsü",
-      image: placehold,
+      image: product4,
       category: "Eğitim",
     },
     {
       id: 8,
       name: "Spor Kompleksi",
-      image: placehold,
+      image: product5,
       category: "Spor",
     },
   ];

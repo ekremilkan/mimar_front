@@ -25,7 +25,7 @@ const Hero = () => {
           <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
         </svg>
       ),
-      heading: "Build Your Dream With Passion",
+      heading: "Hayalini Tutkuyla İnşa Et",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
     },
@@ -48,7 +48,7 @@ const Hero = () => {
           <rect x="16" y="4" width="5" height="16"></rect>
         </svg>
       ),
-      heading: "Quality Construction Services",
+      heading: "Kaliteli İnşaat Hizmetleri",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
     },
@@ -70,7 +70,7 @@ const Hero = () => {
           <polyline points="9 22 9 12 15 12 15 22"></polyline>
         </svg>
       ),
-      heading: "Expert Restoration Services",
+      heading: "Uzman Restorasyon Hizmetleri",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
     },
@@ -93,7 +93,7 @@ const Hero = () => {
           <line x1="9" y1="21" x2="9" y2="9"></line>
         </svg>
       ),
-      heading: "Premium Real Estate Solutions",
+      heading: "Premium Gayrimenkul Çözümleri",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
     },
@@ -118,7 +118,7 @@ const Hero = () => {
           <line x1="14" y1="1" x2="14" y2="4"></line>
         </svg>
       ),
-      heading: "Tourism Investment Opportunities",
+      heading: "Turizm Yatırım Fırsatları",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
     },
