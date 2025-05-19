@@ -1,11 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import foto from "../assets/img/bgmain.jpg";
 import "swiper/css";
 import "swiper/css/autoplay";
 
 const Hero = () => {
-  // Service categories data
+  // Service categories data - her birine videoSrc ekleyelim
   const serviceCategories = [
     {
       title: "Mimarlık",
@@ -28,6 +27,7 @@ const Hero = () => {
       heading: "Hayalini Tutkuyla İnşa Et",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
+      videoSrc: "../videos/architecture.mp4", // Örnek video yolu
     },
     {
       title: "İnşaat",
@@ -51,6 +51,7 @@ const Hero = () => {
       heading: "Kaliteli İnşaat Hizmetleri",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
+      videoSrc: "../videos/construction.mp4", // Örnek video yolu
     },
     {
       title: "Restorasyon - Tadilat",
@@ -73,6 +74,7 @@ const Hero = () => {
       heading: "Uzman Restorasyon Hizmetleri",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
+      videoSrc: "../videos/renovation.mp4", // Örnek video yolu
     },
     {
       title: "Gayrimenkul",
@@ -96,6 +98,7 @@ const Hero = () => {
       heading: "Premium Gayrimenkul Çözümleri",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
+      videoSrc: "../videos/realestate.mp4", // Örnek video yolu
     },
     {
       title: "Turizm Yatırım - İşletme",
@@ -121,33 +124,46 @@ const Hero = () => {
       heading: "Turizm Yatırım Fırsatları",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
+      videoSrc: "../videos/tourism.mp4", // Örnek video yolu
     },
   ];
 
   return (
     <div className="relative w-full h-screen">
-      {/* Swiper konteyneri için açık bir yükseklik belirleyin */}
       <div className="h-full">
         <Swiper
           modules={[Autoplay]}
           spaceBetween={0}
           slidesPerView={1}
           autoplay={{
-            delay: 3500,
+            delay: 7000, // Her videonun süresine göre bu değeri ayarlayabilirsin
             disableOnInteraction: false,
           }}
           className="h-full"
+          //Swiper'ın her slayt değişiminde videoyu baştan başlatması için
+          onSlideChange={(swiper) => {
+            const currentVideo =
+              swiper.slides[swiper.activeIndex].querySelector("video");
+            if (currentVideo) {
+              currentVideo.currentTime = 0;
+              currentVideo.play();
+            }
+          }}
         >
           {serviceCategories.map((service, index) => (
             <SwiperSlide key={index} className="h-full">
-              {/* Background Image */}
               <div className="relative w-full h-full">
-                {/* Placeholder Image - Full background */}
+                {/* Background Video */}
                 <div className="absolute inset-0 w-full h-full">
-                  <img
-                    src={foto}
-                    alt={`${service.title} Background`}
+                  <video
+                    src={service.videoSrc} // Dinamik video kaynağı
                     className="w-full h-full object-cover"
+                    autoPlay // Otomatik başlat
+                    muted // Ses kapalı (tarayıcılar genelde sesli otomatik oynatmaya izin vermez)
+                    loop // Döngüye al
+                    playsInline // iOS'ta tam ekran olmadan oynatma
+                    // poster={foto} // Video yüklenene kadar gösterilecek bir resim (isteğe bağlı)
+                    // preload="auto" // Videonun nasıl yükleneceğini belirler (auto, metadata, none)
                   />
                 </div>
 
@@ -180,7 +196,7 @@ const Hero = () => {
 
                       {/* Transparent GET START Button */}
                       <button className="px-8 py-3 bg-transparent hover:bg-white/20 text-white border-2 border-white font-medium rounded-full transition-colors duration-300 uppercase tracking-wide">
-                        GET START
+                        İNCELE
                       </button>
                     </div>
                   </div>
