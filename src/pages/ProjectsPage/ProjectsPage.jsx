@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import product2 from "../../assets/img/product2.webp";
@@ -8,6 +9,7 @@ import product4 from "../../assets/img/product4.webp";
 const ProjectsPage = () => {
   const [activeCategory, setActiveCategory] = useState("TÜMÜ");
   const [filteredProjects, setFilteredProjects] = useState([]);
+  const navigate = useNavigate();
 
   // Project data
   const projects = [
@@ -96,6 +98,11 @@ const ProjectsPage = () => {
     setActiveCategory(category);
   };
 
+  // Proje detay sayfasına yönlendirme fonksiyonu
+  const handleProjectClick = (projectId) => {
+    navigate(`/project-detail/${projectId}`);
+  };
+
   return (
     <>
       <Header />
@@ -155,7 +162,11 @@ const ProjectsPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
-              <div key={project.id} className="group cursor-pointer">
+              <div
+                key={project.id}
+                className="group cursor-pointer"
+                onClick={() => handleProjectClick(project.id)}
+              >
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image || "/images/placeholder.jpg"}

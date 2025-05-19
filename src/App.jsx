@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
+import ProjectDetail from "./pages/ProjectsPage/ProjectDetail";
 import BlogPage from "./pages/Blog/BlogPage";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/hakkimizda" element={<About />} />
         <Route path="/iletisim" element={<Contact />} />
         <Route path="/projeler" element={<ProjectsPage />} />
+        <Route path="/project-detail/:projectId" element={<ProjectDetail />} />
         <Route path="/blog" element={<BlogPage />} />
       </Routes>
     </Router>
