@@ -2,9 +2,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
+import { useNavigate } from "react-router-dom"; // React Router için
 
 const Hero = () => {
-  // Service categories data - her birine videoSrc ekleyelim
+  // React Router navigasyon hook'u
+  const navigate = useNavigate();
+
+  // Yönlendirme fonksiyonu
+  const handleNavigate = (path) => {
+    navigate(path);
+  };
+
+  // Service categories data - her birine URL ve videoSrc eklenmiş hali
   const serviceCategories = [
     {
       title: "Mimarlık",
@@ -27,7 +36,8 @@ const Hero = () => {
       heading: "Hayalini Tutkuyla İnşa Et",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
-      videoSrc: "../videos/architecture.mp4", // Örnek video yolu
+      videoSrc: "../videos/architecture.mp4",
+      url: "/mimarlik", // Mimarlık sayfası URL'i
     },
     {
       title: "İnşaat",
@@ -51,7 +61,8 @@ const Hero = () => {
       heading: "Kaliteli İnşaat Hizmetleri",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
-      videoSrc: "../videos/construction.mp4", // Örnek video yolu
+      videoSrc: "../videos/construction.mp4",
+      url: "/insaat", // İnşaat sayfası URL'i
     },
     {
       title: "Restorasyon - Tadilat",
@@ -74,7 +85,8 @@ const Hero = () => {
       heading: "Uzman Restorasyon Hizmetleri",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
-      videoSrc: "../videos/renovation.mp4", // Örnek video yolu
+      videoSrc: "../videos/renovation.mp4",
+      url: "/restorasyon-tadilat", // Restorasyon sayfası URL'i
     },
     {
       title: "Gayrimenkul",
@@ -98,7 +110,8 @@ const Hero = () => {
       heading: "Premium Gayrimenkul Çözümleri",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
-      videoSrc: "../videos/realestate.mp4", // Örnek video yolu
+      videoSrc: "../videos/realestate.mp4",
+      url: "/gayrimenkul", // Gayrimenkul sayfası URL'i
     },
     {
       title: "Turizm Yatırım - İşletme",
@@ -124,7 +137,8 @@ const Hero = () => {
       heading: "Turizm Yatırım Fırsatları",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusm tempor incididunt ut labore et dolore.",
-      videoSrc: "../videos/tourism.mp4", // Örnek video yolu
+      videoSrc: "../videos/tourism.mp4",
+      url: "/turizm-yatirim", // Turizm sayfası URL'i
     },
   ];
 
@@ -136,7 +150,7 @@ const Hero = () => {
           spaceBetween={0}
           slidesPerView={1}
           autoplay={{
-            delay: 7000, // Her videonun süresine göre bu değeri ayarlayabilirsin
+            delay: 7000, // Her videonun süresine göre bu değeri ayarlayabilirsiniz
             disableOnInteraction: false,
           }}
           className="h-full"
@@ -163,7 +177,6 @@ const Hero = () => {
                     loop // Döngüye al
                     playsInline // iOS'ta tam ekran olmadan oynatma
                     // poster={foto} // Video yüklenene kadar gösterilecek bir resim (isteğe bağlı)
-                    // preload="auto" // Videonun nasıl yükleneceğini belirler (auto, metadata, none)
                   />
                 </div>
 
@@ -194,8 +207,11 @@ const Hero = () => {
                         {service.description}
                       </p>
 
-                      {/* Transparent GET START Button */}
-                      <button className="px-8 py-3 bg-transparent hover:bg-white/20 text-white border-2 border-white font-medium rounded-full transition-colors duration-300 uppercase tracking-wide">
+                      {/* İNCELE Butonu - Şimdi yönlendirme işlevi eklenmiş */}
+                      <button
+                        onClick={() => handleNavigate(service.url)}
+                        className="px-8 py-3 bg-transparent hover:bg-white/20 text-white border-2 border-white font-medium rounded-full transition-colors duration-300 uppercase tracking-wide"
+                      >
                         İNCELE
                       </button>
                     </div>

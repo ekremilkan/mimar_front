@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
-import Hero from "../../components/Hero";
-import ImageWithGallery from "../../components/Projects/ImageWithGallery";
+import ImageWithGallery from "../../pages/Projects/ImageWithGallery";
 import Footer from "../../components/Footer";
 
 // Örnek proje verileri

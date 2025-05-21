@@ -6,6 +6,7 @@ import Contact from "./pages/Contact/Contact";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import ProjectDetail from "./pages/ProjectsPage/ProjectDetail";
 import BlogPage from "./pages/Blog/BlogPage";
+import EstatePage from "./pages/RealEstate/RealEstate";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/projeler" element={<ProjectsPage />} />
         <Route path="/project-detail/:projectId" element={<ProjectDetail />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/mimarlik" element={<EstatePage />} />
       </Routes>
     </Router>
   );
