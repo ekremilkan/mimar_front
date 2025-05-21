@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import banner from "../../assets/img/bgmain.jpg";
 
-const EstatePage = () => {
+const BuildPage = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [isContentVisible, setIsContentVisible] = useState(false);
 
@@ -44,7 +44,7 @@ const EstatePage = () => {
     <>
       <Header />
 
-      {/* Banner Header Section */}
+      {/* Banner Header Section - Reduced Height */}
       <div
         ref={headerRef}
         className={`w-full transition-all duration-1000 ${
@@ -65,7 +65,7 @@ const EstatePage = () => {
                 Toprak Mimarlık
               </h1>
               <p className="text-lg md:text-xl max-w-2xl mx-auto">
-                Kalite ve Güvenin Adresi
+                Güçlü Temeller, Sağlam Yapılar
               </p>
             </div>
           </div>
@@ -83,26 +83,26 @@ const EstatePage = () => {
         >
           <div className="space-y-8 text-center">
             <p className="text-gray-700 leading-relaxed">
-              Tüm gayrimenkul yatırımlarımızda Türkiye'nin farklı şehirlerinde,
-              uzun araştırmalar sonucu özen ve titizlikle seçilmiş en değerli
-              konumda yaşam alanları üretiyoruz. Tabiatın içinde ve ona saygı
-              ile üretilen yaşam alanlarında, en güncel teknik ve teknolojiler
-              kullanılıyor, uzun yıllar sağlık ve mutlulukla yaşanacak evlere
-              hayat veriyoruz.
+              Toprak Mimarlık olarak, sektördeki 25 yıllık tecrübemizle
+              Türkiye'nin dört bir yanında modern, dayanıklı ve estetik yapılar
+              inşa ediyoruz. Konut projelerinden ticari yapılara, altyapı
+              çalışmalarından endüstriyel tesislere kadar geniş bir yelpazede
+              hizmet sunuyoruz.
             </p>
 
             <p className="text-gray-700 leading-relaxed">
-              Güven, saygınlık ve kaliteli hizmet anlayışımızdan taviz vermeden,
-              proje yönetimi ve proje geliştirme alanlarında sektörün en değerli
-              şirketi olma vizyonu ile çalışmalarımızı sürdürüyoruz.
+              En son mühendislik teknolojilerini kullanarak, depreme dayanıklı,
+              enerji verimli ve çevre dostu binalar tasarlıyor ve inşa ediyoruz.
+              Kaliteden ödün vermeden, zamanında teslim ilkesiyle çalışarak
+              müşterilerimizin güvenini kazanıyoruz.
             </p>
 
             <p className="text-gray-700 leading-relaxed">
-              Türkiye'nin birçok ilinde vizyon projeleri olan Toprak Mimarlık,
-              tüm faaliyet ve projelerini toplumsal gelişime sürdürülebilir
-              katkı sağlamak anlayışıyla gerçekleştiriyor. Toprak Mimarlık,
-              proje geliştirirken, 'toplum', 'tasarım', 'tabiat' ve 'teknoloji'
-              başlıklarından oluşan 4T yaklaşımıyla hareket ediyor.
+              Toprak Mimarlık olarak, her projemizde sürdürülebilirlik,
+              dayanıklılık, estetik ve fonksiyonellik ilkelerini harmanlıyoruz.
+              Uzman mühendis ve mimar kadromuzla, projenin ilk aşamasından
+              teslim aşamasına kadar titizlikle çalışıyor, müşterilerimizin
+              beklentilerinin ötesinde çözümler sunuyoruz.
             </p>
           </div>
         </div>
@@ -125,16 +125,45 @@ const EstatePage = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  <rect x="2" y="6" width="20" height="14" rx="2"></rect>
+                  <path d="M12 16v4"></path>
+                  <path d="M2 10h20"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Konut Projeleri</h3>
+              <p className="text-gray-600">
+                Modern mimariye sahip, depreme dayanıklı ve enerji verimli konut
+                projeleri inşa ediyoruz. Dairelerden villalara kadar her
+                ihtiyaca uygun çözümler sunuyoruz.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mb-6 text-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M2 6H4V18H2zM10 6H8V18H10z"></path>
+                  <path d="M20 6H22V18H20zM14 6H16V18H14z"></path>
+                  <path d="M4 10H20"></path>
+                  <path d="M4 14H20"></path>
                 </svg>
               </div>
               <h3 className="text-xl font-bold mb-3">
-                Kaliteli Yaşam Alanları
+                Ticari ve Endüstriyel Yapılar
               </h3>
               <p className="text-gray-600">
-                Uzun araştırmalar sonucu özenle seçilmiş konumlarda, doğayla
-                uyumlu yaşam alanları tasarlıyoruz.
+                Ofis binaları, alışveriş merkezleri, fabrikalar ve depo
+                tesisleri gibi ticari ve endüstriyel yapılar inşa ediyor, modern
+                iş dünyasının ihtiyaçlarını karşılıyoruz.
               </p>
             </div>
 
@@ -151,37 +180,16 @@ const EstatePage = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="M3 6l9 4 9-4-9-4-9 4z"></path>
+                  <path d="M21 6v8.5a2.5 2.5 0 0 1-2.5 2.5H5.5A2.5 2.5 0 0 1 3 14.5V6"></path>
+                  <path d="M3 14l9 4 9-4"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3">Güven ve Saygınlık</h3>
+              <h3 className="text-xl font-bold mb-3">Altyapı Projeleri</h3>
               <p className="text-gray-600">
-                Kaliteli hizmet anlayışımızdan taviz vermeden, sektörün en
-                değerli şirketi olma vizyonuyla çalışıyoruz.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mb-6 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M20.2 7.8l-7.7 7.7-4-4-5.7 5.7"></path>
-                  <path d="M15 7h6v6"></path>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3">Sürdürülebilir Gelişim</h3>
-              <p className="text-gray-600">
-                Toplum, tasarım, tabiat ve teknoloji odaklı 4T yaklaşımıyla
-                sürdürülebilir projeler geliştiriyoruz.
+                Köprüler, yollar, barajlar ve tüneller gibi altyapı projelerinde
+                teknik uzmanlığımızla, toplumun yaşam kalitesini artıracak
+                dayanıklı çözümler üretiyoruz.
               </p>
             </div>
           </div>
@@ -193,4 +201,4 @@ const EstatePage = () => {
   );
 };
 
-export default EstatePage;
+export default BuildPage;

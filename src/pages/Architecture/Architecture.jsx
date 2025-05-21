@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import banner from "../../assets/img/bgmain.jpg";
 
-const EstatePage = () => {
+const ArchitecturePage = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [isContentVisible, setIsContentVisible] = useState(false);
 
@@ -44,7 +44,7 @@ const EstatePage = () => {
     <>
       <Header />
 
-      {/* Banner Header Section */}
+      {/* Banner Header Section - Reduced Height */}
       <div
         ref={headerRef}
         className={`w-full transition-all duration-1000 ${
@@ -57,7 +57,7 @@ const EstatePage = () => {
           <img
             src={banner}
             alt="Toprak Mimarlık Banner"
-            className="w-full h-64 md:h-80 object-cover"
+            className="w-full h-64 md:h-80 object-cover" // Reduced height with responsive sizing
           />
           <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
             <div className="text-center text-white px-4">
@@ -65,7 +65,7 @@ const EstatePage = () => {
                 Toprak Mimarlık
               </h1>
               <p className="text-lg md:text-xl max-w-2xl mx-auto">
-                Kalite ve Güvenin Adresi
+                Yaratıcı Tasarım, Sürdürülebilir Çözümler
               </p>
             </div>
           </div>
@@ -83,26 +83,28 @@ const EstatePage = () => {
         >
           <div className="space-y-8 text-center">
             <p className="text-gray-700 leading-relaxed">
-              Tüm gayrimenkul yatırımlarımızda Türkiye'nin farklı şehirlerinde,
-              uzun araştırmalar sonucu özen ve titizlikle seçilmiş en değerli
-              konumda yaşam alanları üretiyoruz. Tabiatın içinde ve ona saygı
-              ile üretilen yaşam alanlarında, en güncel teknik ve teknolojiler
-              kullanılıyor, uzun yıllar sağlık ve mutlulukla yaşanacak evlere
-              hayat veriyoruz.
+              Toprak Mimarlık olarak 20 yıllık tecrübemizle, mimari tasarım ve
+              uygulama alanında yenilikçi çözümler sunuyoruz. Projelerimizde
+              insan odaklı, çevre dostu ve sürdürülebilir bir yaklaşım
+              benimseyerek, her mekanın potansiyelini en üst düzeye çıkarmayı
+              hedefliyoruz.
             </p>
 
             <p className="text-gray-700 leading-relaxed">
-              Güven, saygınlık ve kaliteli hizmet anlayışımızdan taviz vermeden,
-              proje yönetimi ve proje geliştirme alanlarında sektörün en değerli
-              şirketi olma vizyonu ile çalışmalarımızı sürdürüyoruz.
+              Konut projelerinden ticari yapılara, kentsel dönüşüm projelerinden
+              kültürel mekanlara kadar geniş bir yelpazede hizmet veren
+              ekibimiz, her projeye özgün bir bakış açısıyla yaklaşıyor. Modern
+              mimari trendleri takip ederken, kültürel ve yerel değerleri
+              korumaya özen gösteriyoruz.
             </p>
 
             <p className="text-gray-700 leading-relaxed">
-              Türkiye'nin birçok ilinde vizyon projeleri olan Toprak Mimarlık,
-              tüm faaliyet ve projelerini toplumsal gelişime sürdürülebilir
-              katkı sağlamak anlayışıyla gerçekleştiriyor. Toprak Mimarlık,
-              proje geliştirirken, 'toplum', 'tasarım', 'tabiat' ve 'teknoloji'
-              başlıklarından oluşan 4T yaklaşımıyla hareket ediyor.
+              Tasarım sürecinde teknolojinin tüm imkanlarını kullanarak, 3D
+              modelleme, BIM (Building Information Modeling) ve sanal gerçeklik
+              uygulamalarıyla müşterilerimize projelerini somut bir şekilde
+              deneyimleme fırsatı sunuyoruz. Konsept geliştirmeden uygulama
+              projelerine, iç mimari tasarımdan peyzaj düzenlemelerine kadar tüm
+              mimari hizmetleri tek çatı altında birleştiriyoruz.
             </p>
           </div>
         </div>
@@ -125,16 +127,16 @@ const EstatePage = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3">
-                Kaliteli Yaşam Alanları
-              </h3>
+              <h3 className="text-xl font-bold mb-3">Mimari Tasarım</h3>
               <p className="text-gray-600">
-                Uzun araştırmalar sonucu özenle seçilmiş konumlarda, doğayla
-                uyumlu yaşam alanları tasarlıyoruz.
+                Konsept tasarımdan uygulama projelerine kadar, kullanıcı
+                ihtiyaçlarını ve mekanın bağlamını gözeten özgün mimari çözümler
+                geliştiriyoruz.
               </p>
             </div>
 
@@ -151,13 +153,16 @@ const EstatePage = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.29 7 12 12 20.71 7"></polyline>
+                  <line x1="12" y1="22" x2="12" y2="12"></line>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3">Güven ve Saygınlık</h3>
+              <h3 className="text-xl font-bold mb-3">İç Mimari Tasarım</h3>
               <p className="text-gray-600">
-                Kaliteli hizmet anlayışımızdan taviz vermeden, sektörün en
-                değerli şirketi olma vizyonuyla çalışıyoruz.
+                Mekanların işlevselliğini ve estetiğini bir araya getiren,
+                kullanıcı deneyimini ön planda tutan iç mimari tasarım çözümleri
+                sunuyoruz.
               </p>
             </div>
 
@@ -174,14 +179,15 @@ const EstatePage = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M20.2 7.8l-7.7 7.7-4-4-5.7 5.7"></path>
-                  <path d="M15 7h6v6"></path>
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3">Sürdürülebilir Gelişim</h3>
+              <h3 className="text-xl font-bold mb-3">Sürdürülebilir Mimari</h3>
               <p className="text-gray-600">
-                Toplum, tasarım, tabiat ve teknoloji odaklı 4T yaklaşımıyla
-                sürdürülebilir projeler geliştiriyoruz.
+                Enerji verimliliği, yenilenebilir malzemeler ve çevre dostu
+                yapım teknikleriyle doğaya saygılı, sürdürülebilir yapılar
+                tasarlıyoruz.
               </p>
             </div>
           </div>
@@ -193,4 +199,4 @@ const EstatePage = () => {
   );
 };
 
-export default EstatePage;
+export default ArchitecturePage;

@@ -7,6 +7,10 @@ import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import ProjectDetail from "./pages/ProjectsPage/ProjectDetail";
 import BlogPage from "./pages/Blog/BlogPage";
 import EstatePage from "./pages/RealEstate/RealEstate";
+import BuildPage from "./pages/Build/Build";
+import Restoration from "./pages/Restoration/Restoration";
+import Architecture from "./pages/Architecture/Architecture";
+import Tourism from "./pages/Tourism/Tourism";
 
 function App() {
   return (
@@ -18,7 +22,11 @@ function App() {
         <Route path="/projeler" element={<ProjectsPage />} />
         <Route path="/project-detail/:projectId" element={<ProjectDetail />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/mimarlik" element={<EstatePage />} />
+        <Route path="/gayrimenkul" element={<EstatePage />} />
+        <Route path="/insaat" element={<BuildPage />} />
+        <Route path="/restorasyon-tadilat" element={<Restoration />} />
+        <Route path="/mimarlik" element={<Architecture />} />
+        <Route path="/turizm-yatirim" element={<Tourism />} />
       </Routes>
     </Router>
   );

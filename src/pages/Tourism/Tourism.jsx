@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import banner from "../../assets/img/bgmain.jpg";
 
-const EstatePage = () => {
+const TourismInvestmentPage = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [isContentVisible, setIsContentVisible] = useState(false);
 
@@ -65,7 +65,7 @@ const EstatePage = () => {
                 Toprak Mimarlık
               </h1>
               <p className="text-lg md:text-xl max-w-2xl mx-auto">
-                Kalite ve Güvenin Adresi
+                Estetik, Fonksiyonellik ve Sürdürülebilirlikte Öncü Yaklaşımlar
               </p>
             </div>
           </div>
@@ -83,26 +83,27 @@ const EstatePage = () => {
         >
           <div className="space-y-8 text-center">
             <p className="text-gray-700 leading-relaxed">
-              Tüm gayrimenkul yatırımlarımızda Türkiye'nin farklı şehirlerinde,
-              uzun araştırmalar sonucu özen ve titizlikle seçilmiş en değerli
-              konumda yaşam alanları üretiyoruz. Tabiatın içinde ve ona saygı
-              ile üretilen yaşam alanlarında, en güncel teknik ve teknolojiler
-              kullanılıyor, uzun yıllar sağlık ve mutlulukla yaşanacak evlere
-              hayat veriyoruz.
+              Toprak Mimarlık olarak 15 yıllık sektörel deneyimimizle, mimari
+              tasarım ve yapı projeleri alanında yaratıcı ve fonksiyonel
+              çözümler sunuyoruz. Her projemizde estetik anlayışı,
+              sürdürülebilirliği ve kullanıcı ihtiyaçlarını ön planda tutarak,
+              mekanları yaşam alanına dönüştürüyoruz.
             </p>
 
             <p className="text-gray-700 leading-relaxed">
-              Güven, saygınlık ve kaliteli hizmet anlayışımızdan taviz vermeden,
-              proje yönetimi ve proje geliştirme alanlarında sektörün en değerli
-              şirketi olma vizyonu ile çalışmalarımızı sürdürüyoruz.
+              Konut projelerinden ticari yapılara, iç mimariden peyzaj
+              tasarımına kadar geniş bir yelpazede hizmet veren ekibimiz, her
+              projeye özgün bir vizyonla yaklaşıyor. Global tasarım trendlerini
+              takip ederken, yerel dokuyu ve kültürel değerleri korumaya özen
+              gösteriyoruz.
             </p>
 
             <p className="text-gray-700 leading-relaxed">
-              Türkiye'nin birçok ilinde vizyon projeleri olan Toprak Mimarlık,
-              tüm faaliyet ve projelerini toplumsal gelişime sürdürülebilir
-              katkı sağlamak anlayışıyla gerçekleştiriyor. Toprak Mimarlık,
-              proje geliştirirken, 'toplum', 'tasarım', 'tabiat' ve 'teknoloji'
-              başlıklarından oluşan 4T yaklaşımıyla hareket ediyor.
+              Proje süreçlerinde kapsamlı analizler, fizibilite çalışmaları ve
+              mimari modellemelerle yatırımcılara değer katan stratejiler
+              sunuyoruz. Konsept geliştirmeden uygulama projelerine, ruhsat
+              süreçlerinden şantiye takibine kadar tüm hizmetleri entegre bir
+              şekilde sağlıyoruz.
             </p>
           </div>
         </div>
@@ -125,16 +126,42 @@ const EstatePage = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-3">Mimari Danışmanlık</h3>
+              <p className="text-gray-600">
+                Kapsamlı analizler, yer analizleri ve tasarım geliştirme
+                süreçleriyle projelerinizi en verimli ve estetik şekilde
+                planlamanıza yardımcı oluyoruz.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mb-6 text-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                 </svg>
               </div>
               <h3 className="text-xl font-bold mb-3">
-                Kaliteli Yaşam Alanları
+                Proje Uygulama ve Takibi
               </h3>
               <p className="text-gray-600">
-                Uzun araştırmalar sonucu özenle seçilmiş konumlarda, doğayla
-                uyumlu yaşam alanları tasarlıyoruz.
+                Yapı ruhsatı, uygulama projeleri ve şantiye süreçlerini
+                titizlikle yöneterek, projelerinizin zamanında ve standartlara
+                uygun şekilde tamamlanmasını sağlıyoruz.
               </p>
             </div>
 
@@ -151,37 +178,17 @@ const EstatePage = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3">Güven ve Saygınlık</h3>
+              <h3 className="text-xl font-bold mb-3">Sürdürülebilir Tasarım</h3>
               <p className="text-gray-600">
-                Kaliteli hizmet anlayışımızdan taviz vermeden, sektörün en
-                değerli şirketi olma vizyonuyla çalışıyoruz.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mb-6 text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M20.2 7.8l-7.7 7.7-4-4-5.7 5.7"></path>
-                  <path d="M15 7h6v6"></path>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3">Sürdürülebilir Gelişim</h3>
-              <p className="text-gray-600">
-                Toplum, tasarım, tabiat ve teknoloji odaklı 4T yaklaşımıyla
-                sürdürülebilir projeler geliştiriyoruz.
+                Enerji verimliliği, doğal malzeme kullanımı ve çevre dostu
+                çözümlerle, hem doğaya hem kullanıcıya saygılı sürdürülebilir
+                projeler üretiyoruz.
               </p>
             </div>
           </div>
@@ -193,4 +200,4 @@ const EstatePage = () => {
   );
 };
 
-export default EstatePage;
+export default TourismInvestmentPage;

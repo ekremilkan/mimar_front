@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import banner from "../../assets/img/bgmain.jpg";
 
-const EstatePage = () => {
+const RestorationPage = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [isContentVisible, setIsContentVisible] = useState(false);
 
@@ -44,7 +44,7 @@ const EstatePage = () => {
     <>
       <Header />
 
-      {/* Banner Header Section */}
+      {/* Banner Header Section - Reduced Height */}
       <div
         ref={headerRef}
         className={`w-full transition-all duration-1000 ${
@@ -56,16 +56,16 @@ const EstatePage = () => {
         <div className="relative">
           <img
             src={banner}
-            alt="Toprak Mimarlık Banner"
+            alt="Toprak Mimarlık Restorasyon Tadilat Banner"
             className="w-full h-64 md:h-80 object-cover"
           />
           <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
             <div className="text-center text-white px-4">
               <h1 className="text-3xl md:text-4xl font-bold mb-2">
-                Toprak Mimarlık
+                Toprak Mimarlık Restorasyon & Tadilat
               </h1>
               <p className="text-lg md:text-xl max-w-2xl mx-auto">
-                Kalite ve Güvenin Adresi
+                Tarihi Değerleri Koruyoruz, Yaşam Alanlarınızı Yeniliyoruz
               </p>
             </div>
           </div>
@@ -83,26 +83,27 @@ const EstatePage = () => {
         >
           <div className="space-y-8 text-center">
             <p className="text-gray-700 leading-relaxed">
-              Tüm gayrimenkul yatırımlarımızda Türkiye'nin farklı şehirlerinde,
-              uzun araştırmalar sonucu özen ve titizlikle seçilmiş en değerli
-              konumda yaşam alanları üretiyoruz. Tabiatın içinde ve ona saygı
-              ile üretilen yaşam alanlarında, en güncel teknik ve teknolojiler
-              kullanılıyor, uzun yıllar sağlık ve mutlulukla yaşanacak evlere
-              hayat veriyoruz.
+              Toprak Mimarlık olarak, tarihi ve kültürel değere sahip yapıların
+              aslına uygun şekilde restorasyonu ve modern yaşam alanlarının
+              yenilenmesi konusunda uzmanlaşmış bir ekibiz. Her yapının kendine
+              özgü karakterini korurken, çağdaş yaşamın gereksinimlerini
+              karşılayan projeler geliştiriyoruz.
             </p>
 
             <p className="text-gray-700 leading-relaxed">
-              Güven, saygınlık ve kaliteli hizmet anlayışımızdan taviz vermeden,
-              proje yönetimi ve proje geliştirme alanlarında sektörün en değerli
-              şirketi olma vizyonu ile çalışmalarımızı sürdürüyoruz.
+              Tarihi yapıların restorasyonunda geleneksel yapı teknikleri ile
+              modern mühendislik çözümlerini harmanlayarak, kültürel mirasımızı
+              gelecek nesillere aktarıyoruz. Konutlardan ticari alanlara, tarihi
+              binalardan modern yapılara kadar geniş bir yelpazede tadilat ve
+              restorasyon hizmetleri sunuyoruz.
             </p>
 
             <p className="text-gray-700 leading-relaxed">
-              Türkiye'nin birçok ilinde vizyon projeleri olan Toprak Mimarlık,
-              tüm faaliyet ve projelerini toplumsal gelişime sürdürülebilir
-              katkı sağlamak anlayışıyla gerçekleştiriyor. Toprak Mimarlık,
-              proje geliştirirken, 'toplum', 'tasarım', 'tabiat' ve 'teknoloji'
-              başlıklarından oluşan 4T yaklaşımıyla hareket ediyor.
+              Toprak Mimarlık olarak her projeye bilimsel bir yaklaşımla
+              başlıyor, yapının tarihsel ve mimari özellikleri hakkında detaylı
+              araştırmalar yapıyoruz. Uzman mimarlar, restoratörler ve sanat
+              tarihçilerinden oluşan ekibimizle, yapıların orijinal değerlerini
+              koruyarak yeniden hayat bulmasını sağlıyoruz.
             </p>
           </div>
         </div>
@@ -125,16 +126,14 @@ const EstatePage = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  <path d="M3 3h18v18H3zM3 15h18"></path>
+                  <path d="M12 3v18"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3">
-                Kaliteli Yaşam Alanları
-              </h3>
+              <h3 className="text-xl font-bold mb-3">Tarihi Restorasyon</h3>
               <p className="text-gray-600">
-                Uzun araştırmalar sonucu özenle seçilmiş konumlarda, doğayla
-                uyumlu yaşam alanları tasarlıyoruz.
+                Tarihi ve kültürel değere sahip yapıların aslına uygun şekilde
+                restorasyonunu gerçekleştiriyor, mimari mirasımızı koruyoruz.
               </p>
             </div>
 
@@ -151,13 +150,16 @@ const EstatePage = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="M3 3v18h18"></path>
+                  <path d="M18 9l-3-3-3 3-3-3-3 3"></path>
+                  <path d="M3 9h18"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3">Güven ve Saygınlık</h3>
+              <h3 className="text-xl font-bold mb-3">Modern Tadilat</h3>
               <p className="text-gray-600">
-                Kaliteli hizmet anlayışımızdan taviz vermeden, sektörün en
-                değerli şirketi olma vizyonuyla çalışıyoruz.
+                Konut ve işyeri tadilatlarında çağdaş tasarım anlayışı ile
+                mekanlarınızı yeniliyor, işlevsellik ve estetiği bir araya
+                getiriyoruz.
               </p>
             </div>
 
@@ -174,14 +176,16 @@ const EstatePage = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path d="M20.2 7.8l-7.7 7.7-4-4-5.7 5.7"></path>
-                  <path d="M15 7h6v6"></path>
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3">Sürdürülebilir Gelişim</h3>
+              <h3 className="text-xl font-bold mb-3">Mimari Danışmanlık</h3>
               <p className="text-gray-600">
-                Toplum, tasarım, tabiat ve teknoloji odaklı 4T yaklaşımıyla
-                sürdürülebilir projeler geliştiriyoruz.
+                Yapınızın durumuna özel analiz ve raporlama hizmetleri sunuyor,
+                restorasyon ve tadilat süreçlerinde uzman mimari danışmanlık
+                sağlıyoruz.
               </p>
             </div>
           </div>
@@ -193,4 +197,4 @@ const EstatePage = () => {
   );
 };
 
-export default EstatePage;
+export default RestorationPage;
