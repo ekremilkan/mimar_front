@@ -5,7 +5,7 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import ProjectDetail from "./pages/ProjectsPage/ProjectDetail";
-import BlogPage from "./pages/Blog/BlogPage";
+import Blog from "./pages/Blog/BlogPage";
 import EstatePage from "./pages/RealEstate/RealEstate";
 import BuildPage from "./pages/Build/Build";
 import Restoration from "./pages/Restoration/Restoration";
@@ -21,7 +21,7 @@ function App() {
         <Route path="/iletisim" element={<Contact />} />
         <Route path="/projeler" element={<ProjectsPage />} />
         <Route path="/project-detail/:projectId" element={<ProjectDetail />} />
-        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/gayrimenkul" element={<EstatePage />} />
         <Route path="/insaat" element={<BuildPage />} />
         <Route path="/restorasyon-tadilat" element={<Restoration />} />
